@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISAXlib", "ISAXlib\ISAXlib.csproj", "{3ACDCCB4-E6C1-45B3-9764-067F10E4BF41}"
 EndProject
 Global
