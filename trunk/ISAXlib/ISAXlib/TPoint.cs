@@ -7,33 +7,33 @@ namespace ISAXlib
 {
     public class TPoint
     {
-        private double value;
-        private long tstamp;
+        private double _value;
+        private long _tstamp;
 
         public TPoint(double value, long tstamp) // tstamp là tổ hợp ngày và giờ
         {
-            this.value = value;
-            this.tstamp = tstamp;
+            this._value = value;
+            this._tstamp = tstamp;
         }
 
         public double value()
         {
-            return value;
+            return _value;
         }
 
         public long tstamp()
         {
-            return tstamp;
+            return _tstamp;
         }
 
         public void setValue(double newValue)
         {
-            value = newValue;
+            _value = newValue;
         }
 
-        public long setTstamp(long newTstamp)
+        public void setTstamp(long newTstamp)
         {
-            tstamp = newTstamp;   
+            _tstamp = newTstamp;   
         }
 
         public Boolean equals(Object o) // hàm kiểm tra một object có phải là TPoint không
@@ -41,7 +41,7 @@ namespace ISAXlib
             if (o is TPoint) // từ khóa "is" dùng để kiểm tra một object có phải là một instance của object khác hay không
             {
                 TPoint tp = (TPoint)o;
-                if (value = tp.value() && tstamp = tp.tstamp())
+                if (_value == tp.value() && _tstamp == tp.tstamp())
                     return true;
             }
             return false;
@@ -49,13 +49,13 @@ namespace ISAXlib
 
         public int compareTo(TPoint o) // hàm so sánh hai TPoint, ưu tiên so sánh theo tstamp
         {
-            if (value == o.value() && tstamp == o.tstamp())
+            if (_value == o.value() && _tstamp == o.tstamp())
                 return 0;
-            if (tstamp > o.tstamp())
+            if (_tstamp > o.tstamp())
                 return 1;
-            if (tstamp < o.tstamp())
+            if (_tstamp < o.tstamp())
                 return -1;
-            return value <= o.value() ? -1 : 1;
+            return _value <= o.value() ? -1 : 1;
         }
 
     }
