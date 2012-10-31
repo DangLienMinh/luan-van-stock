@@ -52,7 +52,123 @@ namespace ISAXlib
             series.Add(p);
         }
 
- 
+        public void addByTime(TPoint p) // thêm TPoint vào Timeserie theo thời gian
+        {
+            if (series.Count == 0)
+            {
+                series.Add(p);
+                return;
+            }
 
+            if (p.tstamp() > (series.ElementAt(series.Count() - 1).tstamp()))
+            {
+                series.Add(p);
+                return;
+            }
+
+            if (p.tstamp() < (series.ElementAt(0).tstamp()))
+            {
+                series.Insert(0, p);
+                return;
+            }
+            else
+            {
+                int pos2insert = findPositions(p);
+                series.Insert(pos2insert, p);
+                return;
+            }
+        }
+
+        public int findPositions(TPoint p) //chưa hiểu thuật toán của hàm này
+        {
+            int i = 0;
+            int j = series.Count() - 1;
+            int k = 0;
+
+            while (j - i > 1)
+            {
+                k = i + (j - i) / 2;
+                if (p.tstamp() == series.ElementAt(k).tstamp())
+                    return k;
+                if (p.tstamp() < series.ElementAt(k).tstamp())
+                    j = k;
+                else
+                    i = k;
+            }
+
+            if (j - i == 1)
+                return j;
+            else
+                return -1;
+        }
+
+        public void removeAt(int pos)
+        {
+            if (pos >= 0 && pos < series.Count())
+                series.RemoveAt(pos);
+            else
+                throw new System.ArgumentException("Illegal position specified for removal");
+        }
+
+        public int size()
+        {
+            return series.Count();
+        } // trả về kích thước của Timeserie
+
+        public TPoint elementAt(int i)  // trả về TPoint tại vị trí i
+        {
+            return series.ElementAt(i);
+        }
+
+        public double[] values() // trả về mảng các value của Timeserie
+        {
+            double[] res = new double[series.Count()];
+            for(int i = 0; i < series.Count(); i++)
+                res[i] = series.ElementAt(i).value();
+            return res;
+
+        }
+
+        public Boolean equals(Object o)
+        {
+            if (o is Timeseries)
+            {
+                Timeseries ot = (Timeseries)o;
+                if (size() == ot.size())
+                {
+                    for (int i = 0; i < series.Count(); i++)
+                        if (!(series.ElementAt(i).equals(ot.elementAt(i))))
+                            return false;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public Timeseries subsection(int start, int end)
+        {
+            if (start >= 0 && end < series.Count())
+            {
+                int len = (end - start) + 1;
+                double[] val = new double[len];
+                long[] ts = new long[len];
+                for (int i = start; i <= end; i++)
+                {
+                    TPoint tp = series.ElementAt(i);
+                    val[i - start] = tp.value();
+                    ts[i - start] = tp.tstamp();
+                }
+
+                return new Timeseries(val, ts);
+            }
+            else
+            {
+                throw new System.ArgumentException("Invalid interval specified: timeseries size");
+            }
+        } // trả về một Timeserie con trong Timeserie 
     }
+        
 }
+
+
+
