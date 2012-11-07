@@ -79,7 +79,7 @@ namespace ISAXlib
             }
         }
 
-        public int findPositions(TPoint p) //chưa hiểu thuật toán của hàm này
+        public int findPositions(TPoint p) //Tim  TPoint p trong Timeseries
         {
             int i = 0;
             int j = series.Count() - 1;
