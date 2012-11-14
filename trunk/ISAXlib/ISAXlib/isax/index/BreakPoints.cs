@@ -32,7 +32,7 @@ namespace ISAXlib.isax.index
                 case 18: break_points = new double[] { -1.59, -1.22, -0.97, -0.76, -0.59, -0.43, -0.28, -0.14, 0, 0.14, 0.28, 0.43, 0.59, 0.76, 0.97, 1.22, 1.59 }; break;
                 case 19: break_points = new double[] { -1.62, -1.25, -1, -0.8, -0.63, -0.48, -0.34, -0.2, -0.07, 0.07, 0.2, 0.34, 0.48, 0.63, 0.8, 1, 1.25, 1.62 }; break;
                 case 20: break_points = new double[] { -1.64, -1.28, -1.04, -0.84, -0.67, -0.52, -0.39, -0.25, -0.13, 0, 0.13, 0.25, 0.39, 0.52, 0.67, 0.84, 1.04, 1.28, 1.64 }; break;
-                default: throw new System.ArgumentException("Error! alphabet_size is too big!");
+                default: throw new System.ArgumentException("Error! alphabet size is too big!");
             }
             return break_points;
         }

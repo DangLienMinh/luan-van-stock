@@ -30,7 +30,7 @@ namespace ISAXlib
             }
         }
 
-        public Timeseries(double[] values, long[] tstamps, double nanValue)
+        /* public Timeseries(double[] values, long[] tstamps, double nanValue)
         {
             series = new List<TPoint>();
             if (values.Length == tstamps.Length)
@@ -45,7 +45,7 @@ namespace ISAXlib
             {
                 throw new System.ArgumentException("The lengths of the values and timestamps arrays are not equal!");
             }
-        }
+        } */
 
         public void add(TPoint p)
         {
@@ -166,6 +166,26 @@ namespace ISAXlib
                 throw new System.ArgumentException("Invalid interval specified: timeseries size");
             }
         } // trả về một Timeserie con trong Timeserie 
+
+        public Timeseries clone() // tự nhân bản ra 1 timeseries mới
+        {
+            double[] val;
+            long[] ts;
+            int len =  series.Count();
+            
+            val = new double[len];
+            ts = new long[len];
+
+            for (int i = 0; i < len; i++)
+            {
+                TPoint tp = (TPoint)series.ElementAt(i);
+                val[i] = tp.value();
+                ts[i] = tp.tstamp();
+            }
+
+            return new Timeseries(val, ts);
+            
+        }
     }
         
 }
