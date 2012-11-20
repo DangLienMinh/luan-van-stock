@@ -50,8 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="isax\index\AbstractNode.cs" />
     <Compile Include="isax\index\BreakPoints.cs" />
     <Compile Include="isax\index\EuclideanDistance.cs" />
+    <Compile Include="isax\index\IndexHashParams.cs" />
+    <Compile Include="isax\index\ISAXUtils.cs" />
+    <Compile Include="isax\index\kNNSearchResults.cs" />
+    <Compile Include="isax\index\NodeType.cs" />
+    <Compile Include="isax\index\NormalAlphabet.cs" />
+    <Compile Include="isax\index\Sequence.cs" />
+    <Compile Include="isax\index\TerminalNode.cs" />
     <Compile Include="isax\index\TimeseriesInstance.cs" />
     <Compile Include="Timeseries.cs" />
     <Compile Include="TPoint.cs" />
