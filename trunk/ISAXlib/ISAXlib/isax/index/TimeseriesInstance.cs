@@ -23,7 +23,7 @@ namespace ISAXlib.isax.index
             return this.hmOccurences;
         }
 
-        // public voidd Debug()
+        
 
         public TimeseriesInstance clone()
         {
