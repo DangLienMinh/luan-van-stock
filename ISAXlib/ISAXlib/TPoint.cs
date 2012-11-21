@@ -9,7 +9,7 @@ namespace ISAXlib
     {
         private double _value;
         private long _tstamp;
-
+    
         public TPoint(double value, long tstamp) // tstamp là tổ hợp ngày và giờ
         {
             this._value = value;
@@ -58,5 +58,6 @@ namespace ISAXlib
             return _value <= o.value() ? -1 : 1;
         }
 
+       
     }
 }
