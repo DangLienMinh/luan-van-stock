@@ -10,7 +10,8 @@ namespace ISAXlib
     class Timeseries
     {
         private List<TPoint> series;
-
+        private static const string COMMA = ", ";
+        
         public Timeseries()
         {
             series = new List<TPoint>();
@@ -186,6 +187,25 @@ namespace ISAXlib
             return new Timeseries(val, ts);
             
         }
+
+        public double[,] valuesAsMatrix()
+        {
+            double res[,] = new double[1, series.size()];
+            for(int i = 0; i < series.size(); i++)
+                res[0, i] = ((TPoint)series.get(i)).value();
+
+            return res;
+        }
+
+        public long[] tstamps()
+        {
+            long res[] = new long[series.size()];
+            for(int i = 0; i < series.size(); i++)
+                res[i] = ((TPoint)series.get(i)).tstamp();
+
+            return res;
+        }
+
     }
         
 }
