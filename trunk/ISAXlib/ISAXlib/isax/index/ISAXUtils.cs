@@ -16,6 +16,12 @@ namespace ISAXlib.isax.index
         {
             NormalAlphabet alphabet = new NormalAlphabet();
             int paaSize = word_length;
+            int tsLength = ts.size();
+            Timeseries PAA;
+            try
+            {
+                PAA =  
+            }
         }
     }
 }

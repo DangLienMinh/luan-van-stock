@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="isax\index\AbstractNode.cs" />
+    <Compile Include="isax\index\Alphabet.cs" />
     <Compile Include="isax\index\BreakPoints.cs" />
     <Compile Include="isax\index\EuclideanDistance.cs" />
     <Compile Include="isax\index\IndexHashParams.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Timeseries.cs" />
     <Compile Include="TPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TSUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
